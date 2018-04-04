@@ -40,6 +40,9 @@ class Board(object):
     def __eq__(self, other):
         return self._state == other._state
 
+    def __gt__(self, other):
+        return False
+
     def __hash__(self):
         return hash(self._state)
 
