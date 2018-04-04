@@ -12,31 +12,12 @@ from stats import print_stats
 TIME_LIMIT_SEC = 60
 
 
-def flatify_state(state):
-    res = []
-    for line in state:
-        for i in line:
-            res.append(i)
-    return res
-
-
 def heuristic_cost_estimate(start, end):
     cost = 0
     for i, line in enumerate(start._state):
         for j, item in enumerate(line):
             if item != end._state[i][j]:
                 cost += 1
-    return cost
-
-
-def heuristic_cost_estimate_bak(start, end):
-    start_state = flatify_state(start.state)
-    end_state = flatify_state(end.state)
-
-    cost = 0
-    for i in range(len(start_state)):
-        if start_state[i] != end_state[i]:
-            cost += 1
     return cost
 
 
